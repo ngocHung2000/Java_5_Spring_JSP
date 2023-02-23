@@ -9,7 +9,6 @@ import java.util.List;
 @Table(name = "mau_sac")
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Color {
