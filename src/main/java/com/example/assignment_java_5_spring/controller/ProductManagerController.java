@@ -28,6 +28,7 @@ public class ProductManagerController {
 
     @GetMapping("/product-manager/show")
     public String show(Model m){
+        m.addAttribute("view","Admin/ProductManager.jsp");
         m.addAttribute("data_input",new ProductDetailModel());
         //data of Product Details
         m.addAttribute("data",productDetailService.getALl());
@@ -35,7 +36,7 @@ public class ProductManagerController {
         m.addAttribute("product",productService.getALl());
         m.addAttribute("color",colorService.getALl());
         m.addAttribute("productCategory",productCategoryService.getALl());
-        return "Admin/ProductManager";
+        return "index";
     }
 
     @PostMapping("/product-manager/add")
@@ -49,13 +50,15 @@ public class ProductManagerController {
 
     @GetMapping("/product-manager/edit/{id}")
     public String edit(@ModelAttribute("data_input")ProductDetailModel obj, @PathVariable("id") Long id, Model m){
+        m.addAttribute("view","Admin/ProductManager.jsp");
         m.addAttribute("data_input",productDetailService.findById(id));
+
         m.addAttribute("data",productDetailService.getALl());
         m.addAttribute("supplier",supplierService.getALl());
         m.addAttribute("product",productService.getALl());
         m.addAttribute("color",colorService.getALl());
         m.addAttribute("productCategory",productCategoryService.getALl());
-        return "Admin/ProductManager";
+        return "index";
     }
 
     @GetMapping("/product-manager/remove/{id}")

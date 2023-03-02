@@ -15,5 +15,6 @@ public interface ProductDetailService {
 
     void remove(Long id);
 
-    ProductDetail findByMa(String ma);
+    ProductDetail findById(Long id);
+
 }
